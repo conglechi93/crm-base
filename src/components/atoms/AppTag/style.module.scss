@@ -1,0 +1,23 @@
+@import '../../../styles/constants/_break-point.scss';
+
+.empty {}
+
+.pending {
+  background-color: #EEF5FF;
+  color: #1158BA;
+}
+
+.publish {
+  background-color: #E1F6EA;
+  color: #119335;
+}
+
+.suspend {
+  background-color: #fff;
+  color: #6C6868;
+}
+
+.locked {
+  background-color: #FFECEC;
+  color: #991A1A;
+}

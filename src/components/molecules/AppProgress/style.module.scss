@@ -1,0 +1,13 @@
+.app_progress {
+  :global {
+    .ant-steps-item .ant-steps-item-content {
+      //   width: 150px;
+    }
+  }
+}
+
+.app_progress_wrapper {
+  width: 600px; // Tam thoi
+  text-align: center;
+  margin: auto;
+}

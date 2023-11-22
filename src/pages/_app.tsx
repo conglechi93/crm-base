@@ -17,6 +17,7 @@ import '../@crema/services/index';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../../public/assets/styles/index.css';
 import '../shared/vendors/index.css';
+import '../styles/constants/all.scss';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

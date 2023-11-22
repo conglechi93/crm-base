@@ -1,0 +1,51 @@
+.record_info_card {
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow:
+    0px 1px 1px 0px rgba(0, 0, 0, 0.25) inset,
+    0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  :global {
+    .ant-card-head {
+      padding: 0;
+      border-bottom: none;
+      .ant-card-head-wrapper {
+        text-align: center;
+        .ant-card-head-title {
+          color: #000;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 28px;
+        }
+      }
+    }
+    .ant-card-body {
+      text-align: center;
+      padding: 0;
+    }
+  }
+}
+
+.success {
+  background-color: #e1f6ea;
+  p {
+    color: #119335 !important;
+    font-size: 32px;
+  }
+}
+
+.error {
+  background-color: #f8ebe4;
+  p {
+    color: #f96419 !important;
+    font-size: 32px;
+  }
+}
+
+.duplicate {
+  background-color: #dfe8f5;
+  p {
+    color: #046cfc !important;
+    font-size: 32px;
+  }
+}

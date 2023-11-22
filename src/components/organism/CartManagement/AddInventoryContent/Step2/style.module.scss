@@ -1,0 +1,101 @@
+.app_step_2 {
+  :global {
+    .box-image {
+      border: 2px dashed #046cfc;
+      padding: 24px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .inputUploadHidden {
+      position: absolute;
+      top: 50%;
+      left: 30%;
+      width: 30%;
+      opacity: 0;
+      height: 32px;
+      transform: translate(-50%, 30%);
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .ant-upload-list-item-container {
+      width: 100% !important;
+      height: 140px !important;
+      margin: 0 !important;
+
+      &::before {
+        display: none;
+      }
+
+      .ant-upload-list-item {
+        padding: 0 !important;
+
+        img {
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .upload_thumnail {
+      .ant-upload {
+        height: auto !important;
+        width: auto !important;
+        background: transparent !important;
+        border: none !important;
+        display: block !important;
+      }
+    }
+
+    .list_image_multiple {
+      .ant-upload-list {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+        &::before {
+          display: none !important;
+        }
+      }
+
+      .ant-upload-list-item-container {
+        margin: 0;
+      }
+
+      .ant-upload-list-item {
+        padding: 0;
+      }
+    }
+
+    .ant-upload-list-item {
+      &::before {
+        height: 100% !important;
+        width: 100% !important;
+      }
+    }
+
+
+    span {
+      color: #046CFC;
+      cursor: pointer;
+    }
+  }
+}
+
+.modal_content_add_url {
+  margin: 0;
+
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+
+    .ant-row {
+      display: block !important;
+
+      .ant-col {
+        text-align: start;
+      }
+    }
+  }
+}

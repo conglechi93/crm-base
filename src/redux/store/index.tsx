@@ -3,9 +3,19 @@ import thunkMiddleware from 'redux-thunk';
 import reducers from '../reducers';
 import {useMemo} from 'react';
 
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
 const rootReducer = combineReducers({
   ...reducers,
 });
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export type AppState = ReturnType<typeof rootReducer>;
 
@@ -20,8 +30,6 @@ function initStore(initialState?: AppState) {
 export const initializeStore = (preloadedState) => {
   let _store = initStore(preloadedState);
 
-  // After navigating to a page with an initial Redux state, merge that state
-  // with the current state in the store, and create a new store
   if (preloadedState) {
     _store = initStore({
       ...preloadedState,

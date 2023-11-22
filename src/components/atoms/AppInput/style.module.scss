@@ -1,0 +1,8 @@
+.app_input {
+  height: 44px;
+}
+
+.ant-input[disabled],
+.ant-select-disabled .ant-select-selector {
+  color: currentColor !important;
+}

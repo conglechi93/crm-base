@@ -9,6 +9,7 @@ import ContactApp from './ContactApp';
 import WallApp from './WallApp';
 import ToDoApp from './ToDoApp';
 import UserList from './UserList';
+import appReducer from './App';
 
 const reducers = {
   settings: Settings,
@@ -22,6 +23,8 @@ const reducers = {
   wallApp: WallApp,
   todoApp: ToDoApp,
   userList: UserList,
+
+  app: appReducer,
 };
 
 export default reducers;

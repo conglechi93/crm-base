@@ -1,0 +1,21 @@
+.modal {
+  // width: auto !important;
+  min-width: 520px;
+  .content {
+    padding: 0;
+  }
+  .header {
+    padding: 16px;
+    border-bottom: 0.5px solid #e1e3e5;
+    margin-bottom: 0;
+  }
+  .body {
+    padding: 16px;
+    max-height: 600px;
+    overflow: auto;
+  }
+  .footer {
+    border-top: 0.5px solid #e1e3e5;
+    padding: 16px;
+  }
+}

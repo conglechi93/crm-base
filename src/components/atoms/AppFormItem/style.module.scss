@@ -1,0 +1,24 @@
+.app_form_item {
+  :global {
+    .ant-form-item-label {
+      padding-bottom: 4px;
+    }
+    .ant-form-item-required {
+      &:before {
+        display: none !important;
+      }
+      p {
+        &::after {
+          display: inline-block;
+          margin-inline-start: 4px;
+          margin-inline-end: 4px;
+          color: #ff4d4f;
+          font-size: 14px;
+          font-family: SimSun, sans-serif;
+          line-height: 1;
+          content: '*';
+        }
+      }
+    }
+  }
+}
