@@ -19,6 +19,7 @@ export const defaultUser: AuthUser = {
   photoURL: '/assets/images/avatar/A11.jpg',
 };
 export const initialUrl = '/dashboards/crypto'; // this url will open after login
+// export const initialUrl = '/home'; // this url will open after login
 
 export const apiTimeout = 20000;
 export const apiHeaders = {
