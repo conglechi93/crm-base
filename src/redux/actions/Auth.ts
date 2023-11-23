@@ -1,4 +1,3 @@
-import {CodeChallengePayload, LoginPayload} from '@/models/auth';
 import API from 'api/Request';
 import {
   GET_PROFILE,
@@ -12,6 +11,7 @@ import {
   SET_TOKEN_SUCCESS,
 } from '../types';
 import {API_ENDPOINTS} from 'services/apiUrl';
+import {CodeChallengePayload, LoginPayload} from 'models/auth';
 
 export const onLogin = (loginPayload: LoginPayload) => {
   return async (dispatch: any) => {
@@ -47,7 +47,7 @@ export const onGetUserInfo = () => {
       type: GET_PROFILE,
     });
     try {
-      const res = await axiosService.getAll({}, API_ENDPOINTS.user.profile);
+      const res = await API.get(API_ENDPOINTS.user.profile);
       dispatch({
         type: GET_PROFILE_SUCCESS,
         payload: res?.data?.data,
@@ -77,10 +77,7 @@ export const onSetAccessToken = (
       clientSecret: process.env.REACT_APP_SSO_CLIENT_SECRET,
     };
     try {
-      const res = await axiosService.post(
-        reqParams,
-        API_ENDPOINTS.auth.code_challenge,
-      );
+      const res = await API.post(API_ENDPOINTS.auth.code_challenge, reqParams);
       const accessToken: string | null = res?.data?.data?.accessToken;
       const refreshToken: string | null = res?.data?.data?.refreshToken;
       dispatch({
@@ -105,7 +102,7 @@ export const onCheckPassword = (password: any) => {
       password: password,
     };
     try {
-      await axiosService.post(reqParams, API_ENDPOINTS.auth.check_password);
+      await API.post(API_ENDPOINTS.auth.check_password, reqParams);
       return true;
     } catch (error) {
       console.log('error', error);
@@ -126,14 +123,7 @@ export const onCheckPassword = (password: any) => {
 export const onGetListProfile = () => {
   return async (dispatch: any) => {
     try {
-      const res = await axiosService.getAll(
-        {},
-        API_ENDPOINTS.user.list_profile,
-      );
-      // dispatch({
-      //   type: GET_PROFILE_SUCCESS,
-      //   payload: res?.data?.data,
-      // })
+      const res = await API.get(API_ENDPOINTS.user.list_profile);
       return res?.data?.data;
     } catch (error) {
       console.log('error', error);

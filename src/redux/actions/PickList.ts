@@ -1,6 +1,6 @@
-import axiosService from 'services/axiosServices';
 import {API_ENDPOINTS} from 'services/apiUrl';
 import {OPEN_TOAST} from 'types';
+import API from 'api/Request';
 
 export const onGetPickList = async (payload?: any) => {
   try {
@@ -9,10 +9,9 @@ export const onGetPickList = async (payload?: any) => {
       pageSize: payload.pageSize,
       search: payload.search,
     };
-    const res = await axiosService.getAll(
-      reqParams,
-      API_ENDPOINTS.pick_lists.get_pick_lists,
-    );
+    const res = await API.get(API_ENDPOINTS.pick_lists.get_pick_lists, {
+      params: reqParams,
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -22,10 +21,11 @@ export const onGetPickList = async (payload?: any) => {
 
 export const onGetPickListById = async (id: string) => {
   try {
-    const res = await axiosService.getById(
-      id,
-      API_ENDPOINTS.pick_lists.get_pick_list_by_id,
-    );
+    const res = await API.get(API_ENDPOINTS.pick_lists.get_pick_list_by_id, {
+      params: {
+        id: id,
+      },
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -39,10 +39,7 @@ export const onCreatePickList = (payload?: any) => {
       const reqParams = {
         ...payload,
       };
-      await axiosService.post(
-        reqParams,
-        API_ENDPOINTS.pick_lists.create_pick_list,
-      );
+      await API.post(API_ENDPOINTS.pick_lists.create_pick_list, reqParams);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -69,10 +66,7 @@ export const onUpdatePickList = (payload?: any) => {
       const reqParams = {
         ...payload,
       };
-      await axiosService.update(
-        reqParams,
-        API_ENDPOINTS.pick_lists.update_pick_list,
-      );
+      await API.patch(API_ENDPOINTS.pick_lists.update_pick_list, reqParams);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -96,8 +90,7 @@ export const onUpdatePickList = (payload?: any) => {
 export const onDeletePickList = (id: string) => {
   return async (dispatch: any) => {
     try {
-      await axiosService.delete(
-        {},
+      await API.delete(
         API_ENDPOINTS.pick_lists.delete_pick_list.replace('{pickListId}', id),
       );
       const toastProps = {

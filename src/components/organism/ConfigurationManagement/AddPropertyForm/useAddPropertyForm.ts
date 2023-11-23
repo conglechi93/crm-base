@@ -5,7 +5,7 @@ import {AddFormType} from './interface';
 import {onCategoryData} from 'redux/actions/ConfigManagement';
 import {onGetPickList} from 'redux/actions/PickList';
 import {checkValidateForm} from 'utils/FormHelper';
-import {onGetPropertyById} from 'redux/actions/property';
+import {onGetPropertyById} from 'redux/actions/Property';
 
 const useAddPropertyForm = (props: AddFormType) => {
   const {onSubmit, isEdit, data} = props;

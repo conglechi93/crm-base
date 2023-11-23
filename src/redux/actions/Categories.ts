@@ -1,16 +1,15 @@
 import {API_ENDPOINTS} from 'services/apiUrl';
-import axiosService from 'services/axiosServices';
 import {GET_ALL_APP_PARAMS_FAILED, GET_ALL_APP_PARAMS_SUCCESS} from 'types';
+import API from 'api/Request';
 
 export const onGetEstateTypes = async (payload?: any) => {
   try {
     const reqParams = {
       ...payload,
     };
-    const res = await axiosService.getAll(
-      reqParams,
-      API_ENDPOINTS.category.estate_types,
-    );
+    const res = await API.get(API_ENDPOINTS.category.estate_types, {
+      params: reqParams,
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -20,7 +19,7 @@ export const onGetEstateTypes = async (payload?: any) => {
 
 export const onGetProvinces = async () => {
   try {
-    const res = await axiosService.getAll({}, API_ENDPOINTS.category.provinces);
+    const res = await API.get(API_ENDPOINTS.category.provinces);
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -30,8 +29,7 @@ export const onGetProvinces = async () => {
 
 export const onGetDistricts = async (provinceId: string): Promise<any> => {
   try {
-    const res = await axiosService.getAll(
-      {},
+    const res = await API.get(
       API_ENDPOINTS.category.districts.replace('{provinceId}', provinceId),
     );
     return res?.data?.data;
@@ -45,8 +43,7 @@ export const onGetWards = async (
   districtId: string,
 ): Promise<any> => {
   try {
-    const res = await axiosService.getAll(
-      {},
+    const res = await API.get(
       API_ENDPOINTS.category.wards
         .replace('{provinceId}', provinceId)
         .replace('{districtId}', districtId),
@@ -59,15 +56,14 @@ export const onGetWards = async (
 
 export const onGetInvestor = async (searchObject: any) => {
   try {
-    const param = {
+    const reqParams = {
       page: searchObject.page,
       pageSize: searchObject.pageSize,
       searchText: searchObject.searchText,
     };
-    const res = await axiosService.getAll(
-      param,
-      API_ENDPOINTS.category.investors,
-    );
+    const res = await API.get(API_ENDPOINTS.category.investors, {
+      params: reqParams,
+    });
     return res?.data?.data;
   } catch (error) {
     return false;
@@ -76,10 +72,7 @@ export const onGetInvestor = async (searchObject: any) => {
 
 export const onGetAllAppParams = () => async (dispatch: any) => {
   try {
-    const res = await axiosService.getAll(
-      {},
-      API_ENDPOINTS.category.app_params,
-    );
+    const res = await API.get(API_ENDPOINTS.category.app_params);
     const {categories, configurations, imageUrls} = res?.data?.data;
     dispatch({
       type: GET_ALL_APP_PARAMS_SUCCESS,

@@ -1,13 +1,8 @@
 import React from 'react';
-import notification from '@crema/services/db/notifications';
 import {IconButton, Theme} from '@mui/material';
-import List from '@mui/material/List';
 import Button from '@mui/material/Button';
-import AppScrollbar from '@crema/core/AppScrollbar';
 import IntlMessages from '@crema/utility/IntlMessages';
-import NotificationItem from './NotificationItem';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import {SxProps} from '@mui/system';
 
@@ -40,9 +35,6 @@ const AppNotificationContent: React.FC<AppNotificationContentProps> = ({
           minHeight: {xs: 56, sm: 70},
         }}
       >
-        <Typography component='h3'>
-          <IntlMessages id='common.notifications' />({notification.length})
-        </Typography>
         <IconButton
           sx={{
             height: 40,
@@ -56,17 +48,6 @@ const AppNotificationContent: React.FC<AppNotificationContentProps> = ({
           <CancelOutlinedIcon />
         </IconButton>
       </Box>
-      <AppScrollbar
-        sx={{
-          height: {xs: 'calc(100% - 96px)', sm: 'calc(100% - 110px)'},
-        }}
-      >
-        <List sx={{py: 0}}>
-          {notification.map((item) => (
-            <NotificationItem key={item.id} item={item} />
-          ))}
-        </List>
-      </AppScrollbar>
       <Button
         sx={{
           borderRadius: 0,

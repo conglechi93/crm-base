@@ -43,8 +43,6 @@ const AppUploadZones = (props: AppUploadZonesProps) => {
     const {response} = file;
     const id: string = response?.id;
     const res = await onRemoveFile(id);
-    console.log('res - delete', res);
-
     if (res) {
       const newImageIds = imageIds.filter((item) => item !== id);
       setImageIds(newImageIds);

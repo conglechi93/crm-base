@@ -20,6 +20,7 @@
     "@mui/x-data-grid": "^5.2.1",
     "@mui/x-data-grid-generator": "^5.2.1",
     "@mui/x-data-grid-pro": "^5.2.1",
+    "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -93,7 +94,7 @@
     "stylis": "^4.0.10",
     "stylis-plugin-rtl": "^2.1.0",
     "tslib": "^2.6.2",
-    "typescript": "^4.4.3",
+    "typescript": "^5.3.2",
     "velocity-animate": "^1.5.2",
     "velocity-react": "^1.4.3",
     "yup": "^0.32.9"

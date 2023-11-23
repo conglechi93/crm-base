@@ -9,7 +9,6 @@ import {
 } from './firebase';
 import {AuthUser} from '../../../../types/models/AuthUser';
 import {fetchError, fetchStart, fetchSuccess} from '../../../../redux/actions';
-import {defaultUser} from '../../../../shared/constants/AppConst';
 
 interface FirebaseContextProps {
   user: AuthUser | null | undefined;
@@ -59,7 +58,7 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
   children,
 }) => {
   const [firebaseData, setFirebaseData] = useState<FirebaseContextProps>({
-    user: defaultUser,
+    user: null,
     isLoading: false,
     isAuthenticated: true,
   });
@@ -124,13 +123,13 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         isLoading: false,
       });
       dispatch(fetchSuccess());
-    } catch ({message}) {
+    } catch (e) {
       setFirebaseData({
         ...firebaseData,
         isAuthenticated: false,
         isLoading: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
 
@@ -147,13 +146,13 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
       });
       console.log('3');
       dispatch(fetchSuccess());
-    } catch ({message}) {
+    } catch (e) {
       setFirebaseData({
         ...firebaseData,
         isAuthenticated: false,
         isLoading: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
   const createUserWithEmailAndPassword = async ({
@@ -178,13 +177,13 @@ const FirebaseAuthProvider: React.FC<FirebaseAuthProviderProps> = ({
         isLoading: false,
       });
       dispatch(fetchSuccess());
-    } catch ({message}) {
+    } catch (e) {
       setFirebaseData({
         ...firebaseData,
         isAuthenticated: false,
         isLoading: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
 

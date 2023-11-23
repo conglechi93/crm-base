@@ -2,16 +2,21 @@ import React, {useEffect, useState} from 'react';
 import {Col, Form, Menu, Popover, Row, Tooltip} from 'antd';
 import Image from 'next/image';
 import {useDispatch} from 'react-redux';
-import {onGetPropertyList} from 'redux/actions/property';
+import {onGetPropertyList} from 'redux/actions/Property';
 import {
   onCreateCartForm,
   onDeleteCartForm,
   onExportCartForm,
+  onGetCartFormById,
   onGetCartFormList,
   onUpdateCartForm,
 } from 'redux/actions/ConfigManagement';
 import {isNullOrUndefinedOrEmpty} from 'utils/FormHelper';
 import AddFormCartForm from 'components/organism/ConfigurationManagement/AddFormCartForm';
+import AppTransfer from 'components/molecules/AppTransfer';
+import {AppTableContainer} from '@crema';
+import AppTag from 'components/atoms/AppTag';
+import TempIcon from '@/assets/icons/action/dot-hoz.svg';
 
 const useCart = () => {
   const pageSize = 10;
@@ -126,7 +131,7 @@ const useCart = () => {
           .filter((item) => item.disabled === true)
           .map((item) => item.key);
 
-        const res = await dispatch(
+        const res: any = await dispatch(
           onCreateCartForm({
             formName,
             formDesc,
@@ -164,7 +169,7 @@ const useCart = () => {
         const defaultProperty = property
           .filter((item) => item.disabled === true)
           .map((item) => item.key);
-        const res = await dispatch(
+        const res: any = await dispatch(
           onUpdateCartForm({
             id: currentRecord.id,
             formCode: currentRecord.formCode,
@@ -184,7 +189,7 @@ const useCart = () => {
       }
     }
     if (submitType === 'delete') {
-      const res = await dispatch(onDeleteCartForm(currentRecord.id));
+      const res: any = await dispatch(onDeleteCartForm(currentRecord.id));
       if (res) {
         setIsOpen(false);
         setIsRefresh((prevState) => !prevState);
@@ -385,7 +390,7 @@ const useCart = () => {
           <Popover content={content} placement='topLeft'>
             <Image
               src={TempIcon}
-              style={{cursor: 'pointer'}}
+              // style={{cursor: 'pointer'}}
               width={20}
               height={20}
               alt=''

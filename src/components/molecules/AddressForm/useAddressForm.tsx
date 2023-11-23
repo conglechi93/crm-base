@@ -4,7 +4,7 @@ import {
   onGetDistricts,
   onGetProvinces,
   onGetWards,
-} from 'redux/actions/categories';
+} from 'redux/actions/Categories';
 
 const useAddressForm = ({
   form,

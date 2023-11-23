@@ -5,7 +5,7 @@ import {
   onGetCartList,
   onGetInventoryTableById,
 } from 'redux/actions/CartManagement';
-import {onGetEstateTypes} from 'redux/actions/categories';
+import {onGetEstateTypes} from 'redux/actions/Categories';
 
 const useAddForm = (props: AddFormType) => {
   const {form, type, data} = props;

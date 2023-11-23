@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react';
 import {FormInstance} from 'antd';
-import {onGetInvestor} from 'redux/actions/categories';
+import {onGetInvestor} from 'redux/actions/Categories';
 import {checkValidateForm} from 'utils/FormHelper';
 import {loadState} from 'utils/LocalStore';
 import {useSelector} from 'react-redux';
+import {RootState} from 'redux/store';
 
 const useStep1 = ({
   info,
@@ -16,7 +17,7 @@ const useStep1 = ({
   setDisabled: (value: boolean) => void;
   handleSetFormData: (dataItems: Array<{key: string; value: any}>) => void;
 }) => {
-  const {categories} = useSelector((state) => state.category);
+  const {categories} = useSelector((state: RootState) => state.category);
   const [investorOptions, setInvestorOptions] = useState([]);
   const [legalDocsOptions, setLegalDocsOptions] = useState([]);
   const [dataSource, setDataSource] = useState();

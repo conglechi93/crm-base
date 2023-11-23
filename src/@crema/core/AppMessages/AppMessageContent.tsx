@@ -1,13 +1,8 @@
 import React from 'react';
-import messages from '@crema/services/db/messages';
 import {Box, IconButton, Theme} from '@mui/material';
-import MessageItem from './MessageItem';
-import List from '@mui/material/List';
 import Button from '@mui/material/Button';
-import AppScrollbar from '@crema/core/AppScrollbar';
 import IntlMessages from '@crema/utility/IntlMessages';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import Typography from '@mui/material/Typography';
 import {SxProps} from '@mui/system';
 
 interface AppMessageContentProps {
@@ -39,9 +34,6 @@ const AppMessageContent: React.FC<AppMessageContentProps> = ({
           minHeight: {xs: 56, sm: 70},
         }}
       >
-        <Typography component='h3'>
-          <IntlMessages id='dashboard.messages' />({messages.length})
-        </Typography>
         <IconButton
           sx={{
             height: 40,
@@ -55,21 +47,7 @@ const AppMessageContent: React.FC<AppMessageContentProps> = ({
           <CancelOutlinedIcon />
         </IconButton>
       </Box>
-      <AppScrollbar
-        sx={{
-          height: {xs: 'calc(100% - 96px)', sm: 'calc(100% - 110px)'},
-        }}
-      >
-        <List
-          sx={{
-            py: 0,
-          }}
-        >
-          {messages.map((item) => (
-            <MessageItem key={item.id} item={item} />
-          ))}
-        </List>
-      </AppScrollbar>
+
       <Button
         sx={{
           borderRadius: 0,
