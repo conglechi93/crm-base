@@ -13,10 +13,10 @@ export const createImageJson = (
     extension,
     typeUpload,
     status,
-  }
-}
+  };
+};
 
 export const getFileExtension = (filename: string) => {
-  const extension = filename.split('.').pop()
-  return extension?.toLowerCase()
-}
+  const extension = filename.split('.').pop();
+  return extension?.toLowerCase();
+};
