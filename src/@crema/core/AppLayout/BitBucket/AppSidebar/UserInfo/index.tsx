@@ -21,15 +21,6 @@ const UserInfo = () => {
     setAnchorEl(null);
   };
 
-  const getUserAvatar = () => {
-    if (user.displayName) {
-      return user.displayName.charAt(0).toUpperCase();
-    }
-    if (user.email) {
-      return user.email.charAt(0).toUpperCase();
-    }
-  };
-
   return (
     <Box
       sx={{
@@ -41,29 +32,6 @@ const UserInfo = () => {
         cursor: 'pointer',
       }}
     >
-      <Box onClick={handleClick}>
-        {user.photoURL ? (
-          <Avatar
-            sx={{
-              height: 30,
-              width: 30,
-              backgroundColor: orange[500],
-            }}
-            src={user.photoURL}
-          />
-        ) : (
-          <Avatar
-            sx={{
-              height: 30,
-              width: 30,
-              fontSize: 20,
-              backgroundColor: orange[500],
-            }}
-          >
-            {getUserAvatar()}
-          </Avatar>
-        )}
-      </Box>
       <Menu
         id='simple-menu'
         anchorEl={anchorEl}
@@ -81,47 +49,7 @@ const UserInfo = () => {
             py: 3,
           }}
         >
-          <Box
-            sx={{
-              mr: 3.5,
-            }}
-          >
-            {user.photoURL ? (
-              <Avatar
-                sx={{
-                  height: 40,
-                  width: 40,
-                }}
-                src={user.photoURL}
-              />
-            ) : (
-              <Avatar
-                sx={{
-                  height: 40,
-                  width: 40,
-                  fontSize: 20,
-                  backgroundColor: orange[500],
-                }}
-              >
-                {getUserAvatar()}
-              </Avatar>
-            )}
-          </Box>
-
           <Box>
-            <Box
-              sx={{
-                mb: 0,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                fontSize: 14,
-                fontWeight: Fonts.MEDIUM,
-              }}
-              component='span'
-            >
-              {user.displayName ? user.displayName : 'Admin User '}
-            </Box>
             <Box
               sx={{
                 mt: -0.5,

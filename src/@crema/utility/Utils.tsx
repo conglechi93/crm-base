@@ -113,7 +113,7 @@ export const getUserFromFirebase = (user: any) => {
     return {
       id: 1,
       uid: user.uid,
-      displayName: user.displayName ? user.displayName : 'Crema User',
+      displayName: 'Crema User',
       email: user.email,
       photoURL: user.photoURL,
       role: authRole.user,
@@ -125,7 +125,7 @@ export const getUserFromAWS = (user: any) => {
     return {
       id: 1,
       uid: user.username,
-      displayName: user.attributes.name ? user.attributes.name : 'Crema User',
+      displayName: 'Crema User',
       email: user.attributes.email,
       photoURL: user.photoURL,
       role: authRole.user,

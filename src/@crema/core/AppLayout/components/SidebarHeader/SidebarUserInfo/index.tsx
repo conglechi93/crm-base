@@ -8,7 +8,6 @@ import {alpha, Link, Typography} from '@mui/material';
 import {useAuthMethod, useAuthUser} from '../../../../../utility/AuthHooks';
 import {useSidebarContext} from '../../../../../utility/AppContextProvider/SidebarContextProvider';
 import {Fonts} from '../../../../../../shared/constants/AppEnums';
-import Status from './Status';
 
 const SidebarUserInfo = () => {
   const {borderColor, sidebarTextColor} = useSidebarContext();
@@ -25,15 +24,6 @@ const SidebarUserInfo = () => {
     setAnchorEl(null);
   };
 
-  const getUserAvatar = () => {
-    if (user.displayName) {
-      return user.displayName.charAt(0).toUpperCase();
-    }
-    if (user.email) {
-      return user.email.charAt(0).toUpperCase();
-    }
-  };
-
   return (
     <Box
       sx={{
@@ -45,40 +35,6 @@ const SidebarUserInfo = () => {
         borderBottom: `dashed 1px ${alpha(borderColor!, 0.4)}`,
       }}
     >
-      {user.photoURL ? (
-        <Box
-          sx={{
-            position: 'relative',
-            border: `solid 2px ${alpha(sidebarTextColor, 0.6)}`,
-            padding: 1,
-            borderRadius: '50%',
-            marginBottom: 2.5,
-            '& .avatar-pic': {
-              height: 74,
-              width: 74,
-            },
-          }}
-        >
-          <Avatar className='avatar-pic' src={user.photoURL} />
-          <Status />
-        </Box>
-      ) : (
-        <Box
-          sx={{
-            position: 'relative',
-            border: `solid 2px ${alpha(sidebarTextColor, 0.6)}`,
-            padding: 1,
-            borderRadius: '50%',
-            marginBottom: 2.5,
-            '& .avatar-pic': {
-              height: 74,
-              width: 74,
-            },
-          }}
-        >
-          <Avatar className='avatar-pic'>{getUserAvatar()}</Avatar>
-        </Box>
-      )}
       <Box
         sx={{
           display: 'flex',
@@ -107,7 +63,7 @@ const SidebarUserInfo = () => {
             display: 'flex',
           }}
         >
-          {user.displayName ? user.displayName : 'Admin User '}
+          {'Admin User '}
           <KeyboardArrowDownIcon className='arrowIcon' onClick={handleClick} />
         </Typography>
         <Typography

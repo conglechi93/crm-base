@@ -16,15 +16,6 @@ interface VerticalNavGroupProps {
 
 const VerticalNavGroup: React.FC<VerticalNavGroupProps> = ({item, level}) => {
   const {sidebarTextColor} = useSidebarContext();
-  const {user} = useAuthUser();
-  const hasPermission = useMemo(
-    () => checkPermission(item!.permittedRole, user.role),
-    [item, user.role],
-  );
-
-  if (!hasPermission) {
-    return null;
-  }
   return (
     <>
       <VerticalNavGroupItem
