@@ -2,7 +2,6 @@ import React from 'react';
 import {Form, Formik} from 'formik';
 import * as yup from 'yup';
 import {useIntl} from 'react-intl';
-import AppTextField from '../../../@crema/core/AppFormComponents/AppTextField';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
@@ -58,36 +57,9 @@ const SigninAwsCognito = () => {
         >
           {({isSubmitting}) => (
             <Form style={{textAlign: 'left'}} noValidate autoComplete='off'>
-              <Box sx={{mb: {xs: 5, xl: 8}}}>
-                <AppTextField
-                  placeholder={messages['common.email'] as string}
-                  label={<IntlMessages id='common.email' />}
-                  name='email'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
+              <Box sx={{mb: {xs: 5, xl: 8}}}></Box>
 
-              <Box sx={{mb: {xs: 3, xl: 4}}}>
-                <AppTextField
-                  type='password'
-                  placeholder={messages['common.password'] as string}
-                  label={<IntlMessages id='common.password' />}
-                  name='password'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
+              <Box sx={{mb: {xs: 3, xl: 4}}}></Box>
 
               <Box
                 sx={{

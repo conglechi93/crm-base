@@ -1,7 +1,6 @@
 import React, {CSSProperties, ReactNode, useEffect, useState} from 'react';
 import {useBottomScrollListener} from 'react-bottom-scroll-listener';
 import {Box, Theme, useTheme} from '@mui/material';
-import AppAnimateGroup from '../AppAnimateGroup';
 import {useWidth} from '../../utility/helper/Utils';
 import {SxProps} from '@mui/system';
 
@@ -127,37 +126,6 @@ const GridView: React.FC<GridViewProps> = ({
         ...sx,
       }}
     >
-      <AppAnimateGroup
-        enter={{
-          animation,
-        }}
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          margin: -itemPadding,
-          ...style,
-        }}
-      >
-        {data.length > 0 ? (
-          data.map((item, index) => (
-            <Box
-              style={{
-                flexGrow: 0,
-                maxWidth: `${100 / displayColumn}%`,
-                flexBasis: `${100 / displayColumn}%`,
-                padding: itemPadding,
-                boxSizing: 'border-box',
-              }}
-              key={'grid-' + index}
-            >
-              {renderRow(item, index)}
-            </Box>
-          ))
-        ) : (
-          <div />
-        )}
-      </AppAnimateGroup>
       {data.length === 0 ? getEmptyContainer(ListEmptyComponent) : null}
       {getFooterContainer(ListFooterComponent)}
     </Box>

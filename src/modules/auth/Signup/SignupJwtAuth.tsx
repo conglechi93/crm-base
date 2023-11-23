@@ -7,7 +7,6 @@ import * as yup from 'yup';
 import AppInfoView from '@crema/core/AppInfoView';
 import Box from '@mui/material/Box';
 import IntlMessages from '@crema/utility/IntlMessages';
-import AppTextField from '@crema/core/AppFormComponents/AppTextField';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import Link from 'next/link';
 import {useJWTAuthActions} from '@crema/services/auth/jwt-auth/JWTAuthProvider';
@@ -52,49 +51,6 @@ const SignupJwtAuth = () => {
         >
           {({isSubmitting}) => (
             <Form style={{textAlign: 'left'}} noValidate autoComplete='off'>
-              <Box sx={{mb: {xs: 4, xl: 5}}}>
-                <AppTextField
-                  label={<IntlMessages id='common.name' />}
-                  name='name'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
-
-              <Box sx={{mb: {xs: 4, xl: 5}}}>
-                <AppTextField
-                  label={<IntlMessages id='common.email' />}
-                  name='email'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
-
-              <Box sx={{mb: {xs: 4, xl: 5}}}>
-                <AppTextField
-                  label={<IntlMessages id='common.password' />}
-                  name='password'
-                  type='password'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
-
               <Box
                 sx={{
                   mb: {xs: 3, xl: 4},
