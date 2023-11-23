@@ -1,17 +1,11 @@
 import {Col, Row} from 'antd';
-import React, {useState} from 'react';
+import React from 'react';
 import bgCover from 'assets/image/cover_bg.png';
-import styles from './style.module.scss';
-import HomeLogin from 'components/organism/Home/Login';
-import HomeUsers from 'components/organism/Home/User';
+import HomeComponent from 'components/organism/Home';
 
 const Home = () => {
-  const [isLoged, setIsLoged] = useState(false);
   return (
-    <div
-      className={styles.home}
-      style={{backgroundImage: `url(${bgCover.src})`}}
-    >
+    <div className='homepage' style={{backgroundImage: `url(${bgCover.src})`}}>
       <Row>
         <Col xs={{span: 24}}>
           <a href='/' className='logo'>
@@ -340,7 +334,7 @@ const Home = () => {
           </a>
         </Col>
       </Row>
-      {isLoged ? <HomeLogin /> : <HomeUsers />}
+      <HomeComponent />
     </div>
   );
 };

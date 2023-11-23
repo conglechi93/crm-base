@@ -7,7 +7,7 @@ import imgLogin from 'assets/image/img-login.jpg';
 
 const HomeLogin = () => {
   return (
-    <div className='box-login'>
+    <div className='box_login'>
       <Row gutter={[0, 24]}>
         <Col xs={{span: 24}}>
           <AppTypo variant='h2'>Đăng nhập hệ thống</AppTypo>
