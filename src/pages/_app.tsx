@@ -15,9 +15,9 @@ import {useStore} from '../redux/store'; // Client-side cache, shared for the wh
 import {EmotionCache} from '@emotion/cache';
 import '../@crema/services/index';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import '../../public/assets/styles/index.css';
-import '../shared/vendors/index.css';
-import '../styles/constants/all.scss';
+// import '../../public/assets/styles/index.css';
+// import '../shared/vendors/index.css';
+import '../styles/all.scss';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -33,7 +33,7 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Crema material</title>
+        <title>Vars CRM</title>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <AppContextProvider>
