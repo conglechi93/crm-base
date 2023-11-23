@@ -11,6 +11,7 @@ import AppStyleProvider from '../@crema/utility/AppStyleProvider';
 import AppLocaleProvider from '../@crema/utility/AppLocaleProvider';
 import {useStore} from '../redux/store'; // Client-side cache, shared for the whole session of the user in the browser.
 import {EmotionCache} from '@emotion/cache';
+import {RequestInterceptor} from 'api/RequestInterceptor';
 import '../@crema/services/index';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/all.scss';
@@ -37,8 +38,10 @@ export default function MyApp(props: MyAppProps) {
           <AppThemeProvider>
             <AppStyleProvider>
               <AppLocaleProvider>
-                <CssBaseline />
-                <Component {...pageProps} />
+                <RequestInterceptor>
+                  <CssBaseline />
+                  <Component {...pageProps} />
+                </RequestInterceptor>
               </AppLocaleProvider>
             </AppStyleProvider>
           </AppThemeProvider>

@@ -1,6 +1,7 @@
 import {API_ENDPOINTS} from 'services/apiUrl';
 import axiosService from 'services/axiosServices';
 import {OPEN_TOAST} from 'types';
+import API from 'api/Request';
 
 export const onGetCartList = async (payload?: any) => {
   try {
@@ -9,10 +10,9 @@ export const onGetCartList = async (payload?: any) => {
       pageSize: payload.pageSize,
       search: payload.search,
     };
-    const res = await axiosService.getAll(
-      reqParams,
-      API_ENDPOINTS.cart_management.cart,
-    );
+    const res = await API.get(API_ENDPOINTS.cart_management.cart, {
+      params: reqParams,
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -27,10 +27,9 @@ export const onGetInventoryTableList = async (payload?: any) => {
       pageSize: payload.pageSize,
       cartId: payload.cartId,
     };
-    const res = await axiosService.getAll(
-      reqParams,
-      API_ENDPOINTS.cart_management.inventory_table,
-    );
+    const res = await API.get(API_ENDPOINTS.cart_management.inventory_table, {
+      params: reqParams,
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);

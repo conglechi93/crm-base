@@ -10,7 +10,7 @@ import {
   onGetCartFormList,
   onUpdateCartForm,
 } from 'redux/actions/ConfigManagement';
-import {isNullOrUndefinedOrEmpty} from 'utils/formHelper';
+import {isNullOrUndefinedOrEmpty} from 'utils/FormHelper';
 import AddFormCartForm from 'components/organism/ConfigurationManagement/AddFormCartForm';
 
 const useCart = () => {

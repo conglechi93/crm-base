@@ -4,7 +4,7 @@ import {Form} from 'antd';
 import {AddFormType} from './interface';
 import {onCategoryData} from 'redux/actions/ConfigManagement';
 import {onGetPickList} from 'redux/actions/PickList';
-import {checkValidateForm} from 'utils/formHelper';
+import {checkValidateForm} from 'utils/FormHelper';
 import {onGetPropertyById} from 'redux/actions/property';
 
 const useAddPropertyForm = (props: AddFormType) => {
