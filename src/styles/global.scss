@@ -2,6 +2,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   margin: 0;
+  background-color: #fff !important;
 }
 
 .custom_bg {
@@ -15,6 +16,28 @@ body {
   /* Do not repeat the image */
   background-size: cover;
   /* Resize the background image to cover the entire container */
+}
+
+.homepage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  .logo {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+  }
 }
 
 .full {

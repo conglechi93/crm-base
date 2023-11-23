@@ -1,7 +1,6 @@
 import React, {CSSProperties, ReactNode} from 'react';
 import {useBottomScrollListener} from 'react-bottom-scroll-listener';
 import {useTheme} from '@mui/material';
-import AppAnimateGroup from '../AppAnimateGroup';
 
 interface ListViewProps {
   border?: boolean;
@@ -65,18 +64,7 @@ const ListView: React.FC<ListViewProps> = ({
     style = {...style, ...borderStyle};
   }
   useBottomScrollListener(onEndReached, {debounce: 200});
-  return (
-    <AppAnimateGroup
-      style={{...style}}
-      {...rest}
-      enter={{delay, duration, animation}}
-    >
-      {data.length > 0
-        ? data.map((item, index) => renderRow(item, index))
-        : getEmptyContainer(ListEmptyComponent)}
-      {getFooterContainer(ListFooterComponent)}
-    </AppAnimateGroup>
-  );
+  return <></>;
 };
 
 export default ListView;

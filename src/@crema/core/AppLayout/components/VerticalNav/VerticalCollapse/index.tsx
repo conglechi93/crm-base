@@ -62,16 +62,6 @@ const VerticalCollapse: React.FC<VerticalCollapseProps> = ({item, level}) => {
     setOpen(!open);
   };
 
-  const {user} = useAuthUser();
-  const hasPermission = useMemo(
-    () => checkPermission(item.permittedRole, user.role),
-    [item.permittedRole, user.role],
-  );
-
-  if (!hasPermission) {
-    return null;
-  }
-
   return (
     <>
       <VerticalCollapseItem

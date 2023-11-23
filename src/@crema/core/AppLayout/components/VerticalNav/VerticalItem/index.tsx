@@ -17,15 +17,6 @@ interface VerticalItemProps {
 }
 
 const VerticalItem: React.FC<VerticalItemProps> = ({level, item}) => {
-  const {user} = useAuthUser();
-  const hasPermission = useMemo(
-    () => checkPermission(item.permittedRole, user.role),
-    [item.permittedRole, user.role],
-  );
-  if (!hasPermission) {
-    return null;
-  }
-
   const router = useRouter();
   return (
     <Link href={item.url!} as={item.as}>

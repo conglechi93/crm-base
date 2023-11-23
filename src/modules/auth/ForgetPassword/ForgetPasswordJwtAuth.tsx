@@ -7,7 +7,6 @@ import AppInfoView from '@crema/core/AppInfoView';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IntlMessages from '@crema/utility/IntlMessages';
-import AppTextField from '@crema/core/AppFormComponents/AppTextField';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import AuthWrapper from '../AuthWrapper';
 import AppLogo from '../../../@crema/core/AppLayout/components/AppLogo';
@@ -93,21 +92,6 @@ const ForgetPasswordJwtAuth = () => {
             >
               {({isSubmitting}) => (
                 <Form style={{textAlign: 'left'}}>
-                  <Box sx={{mb: {xs: 5, lg: 8}}}>
-                    <AppTextField
-                      placeholder='Email'
-                      name='email'
-                      label={<IntlMessages id='common.emailAddress' />}
-                      sx={{
-                        width: '100%',
-                        '& .MuiInputBase-input': {
-                          fontSize: 14,
-                        },
-                      }}
-                      variant='outlined'
-                    />
-                  </Box>
-
                   <div>
                     <Button
                       variant='contained'

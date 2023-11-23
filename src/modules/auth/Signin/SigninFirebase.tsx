@@ -4,7 +4,6 @@ import * as yup from 'yup';
 import {useIntl} from 'react-intl';
 import IntlMessages from '../../../@crema/utility/IntlMessages';
 import Box from '@mui/material/Box';
-import AppTextField from '../../../@crema/core/AppFormComponents/AppTextField';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -54,37 +53,6 @@ const SigninFirebase = () => {
         >
           {({isSubmitting}) => (
             <Form style={{textAlign: 'left'}} noValidate autoComplete='off'>
-              <Box sx={{mb: {xs: 5, xl: 8}}}>
-                <AppTextField
-                  placeholder={messages['common.email'] as string}
-                  name='email'
-                  label={<IntlMessages id='common.email' />}
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
-
-              <Box sx={{mb: {xs: 3, xl: 4}}}>
-                <AppTextField
-                  type='password'
-                  placeholder={messages['common.password'] as string}
-                  label={<IntlMessages id='common.password' />}
-                  name='password'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
-
               <Box
                 sx={{
                   mb: {xs: 3, xl: 4},

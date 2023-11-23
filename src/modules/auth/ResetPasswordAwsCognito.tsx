@@ -6,7 +6,6 @@ import {useDispatch} from 'react-redux';
 import {fetchError} from '../../redux/actions';
 import {useIntl} from 'react-intl';
 import {Fonts} from '../../shared/constants/AppEnums';
-import AppTextField from '../../@crema/core/AppFormComponents/AppTextField';
 import IntlMessages from '../../@crema/utility/IntlMessages';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -102,38 +101,6 @@ const ResetPasswordAwsCognito = () => {
                   value={pin}
                   fields={6}
                   onChange={(value) => setPin(value)}
-                />
-              </Box>
-
-              <Box
-                sx={{
-                  mb: {xs: 4, lg: 6},
-                }}
-              >
-                <AppTextField
-                  name='newPassword'
-                  label={<IntlMessages id='common.newPassword' />}
-                  sx={{
-                    width: '100%',
-                  }}
-                  variant='outlined'
-                  type='password'
-                />
-              </Box>
-
-              <Box
-                sx={{
-                  mb: {xs: 4, lg: 6},
-                }}
-              >
-                <AppTextField
-                  name='confirmPassword'
-                  label={<IntlMessages id='common.retypePassword' />}
-                  sx={{
-                    width: '100%',
-                  }}
-                  variant='outlined'
-                  type='password'
                 />
               </Box>
 

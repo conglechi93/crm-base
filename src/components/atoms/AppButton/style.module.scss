@@ -1,5 +1,5 @@
 .button_wrapper {
-  display: inline-block;
+  // display: inline-block;
 
   .default {
     min-width: 120px;
@@ -13,11 +13,11 @@
   }
 
   .primary {
-    // background: $primary-01;
+    background: #d1132a;
 
     &:hover {
-      // background-color: $primary-02 !important;
-      // color: $white;
+      background-color: #e12b41 !important;
+      color: #fff;
     }
   }
 

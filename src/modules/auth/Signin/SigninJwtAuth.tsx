@@ -8,7 +8,6 @@ import AppInfoView from '@crema/core/AppInfoView';
 import Box from '@mui/material/Box';
 import IntlMessages from '@crema/utility/IntlMessages';
 import {useIntl} from 'react-intl';
-import AppTextField from '@crema/core/AppFormComponents/AppTextField';
 import {useJWTAuthActions} from '@crema/services/auth/jwt-auth/JWTAuthProvider';
 import {Fonts} from '../../../shared/constants/AppEnums';
 import {useRouter} from 'next/router';
@@ -54,36 +53,9 @@ const SigninJwtAuth = () => {
         >
           {({isSubmitting}) => (
             <Form style={{textAlign: 'left'}} noValidate autoComplete='off'>
-              <Box sx={{mb: {xs: 5, xl: 8}}}>
-                <AppTextField
-                  placeholder={messages['common.email'] as string}
-                  name='email'
-                  label={<IntlMessages id='common.email' />}
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
+              <Box sx={{mb: {xs: 5, xl: 8}}}></Box>
 
-              <Box sx={{mb: {xs: 3, xl: 4}}}>
-                <AppTextField
-                  type='password'
-                  placeholder={messages['common.password'] as string}
-                  label={<IntlMessages id='common.password' />}
-                  name='password'
-                  variant='outlined'
-                  sx={{
-                    width: '100%',
-                    '& .MuiInputBase-input': {
-                      fontSize: 14,
-                    },
-                  }}
-                />
-              </Box>
+              <Box sx={{mb: {xs: 3, xl: 4}}}></Box>
 
               <Box
                 sx={{

@@ -10,7 +10,6 @@ import {grey} from '@mui/material/colors';
 import {Fonts} from 'shared/constants/AppEnums';
 import IntlMessages from '@crema/utility/IntlMessages';
 import {AppAnimate, AppInfoView} from '@crema';
-import AppTextField from '@crema/core/AppFormComponents/AppTextField';
 
 import {styled} from '@mui/material/styles';
 // @ts-ignore
@@ -120,28 +119,7 @@ const ComingSoon = () => {
               );
               resetForm();
             }}
-          >
-            {() => (
-              <FormWrapper>
-                <AppTextField
-                  placeholder='Email'
-                  name='email'
-                  label={<IntlMessages id='common.emailAddress' />}
-                  className='text-field'
-                  variant='outlined'
-                />
-
-                <Button
-                  variant='contained'
-                  color='primary'
-                  type='submit'
-                  className='button'
-                >
-                  <IntlMessages id='error.notifyMe' />
-                </Button>
-              </FormWrapper>
-            )}
-          </Formik>
+          ></Formik>
         </Box>
         <AppInfoView />
       </>

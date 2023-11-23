@@ -9,15 +9,11 @@ import {Provider} from 'react-redux';
 import AppThemeProvider from '../@crema/utility/AppThemeProvider';
 import AppStyleProvider from '../@crema/utility/AppStyleProvider';
 import AppLocaleProvider from '../@crema/utility/AppLocaleProvider';
-import FirebaseAuthProvider from '../@crema/services/auth/firebase/FirebaseAuthProvider';
-import AuthRoutes from '../@crema/utility/AuthRoutes';
 import {useStore} from '../redux/store'; // Client-side cache, shared for the whole session of the user in the browser.
 import {EmotionCache} from '@emotion/cache';
 import '../@crema/services/index';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import '../../public/assets/styles/index.css';
-import '../shared/vendors/index.css';
-import '../styles/constants/all.scss';
+import '../styles/all.scss';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -33,7 +29,7 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Crema material</title>
+        <title>Vars CRM</title>
         <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <AppContextProvider>
@@ -41,12 +37,8 @@ export default function MyApp(props: MyAppProps) {
           <AppThemeProvider>
             <AppStyleProvider>
               <AppLocaleProvider>
-                <FirebaseAuthProvider>
-                  <AuthRoutes>
-                    <CssBaseline />
-                    <Component {...pageProps} />
-                  </AuthRoutes>
-                </FirebaseAuthProvider>
+                <CssBaseline />
+                <Component {...pageProps} />
               </AppLocaleProvider>
             </AppStyleProvider>
           </AppThemeProvider>

@@ -1,0 +1,68 @@
+.box_card {
+  width: 480px;
+  margin: 0 auto;
+  background-color: #fff;
+
+  text-align: center;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0px 3px 10px 2px rgba(34, 33, 33, 0.2);
+  :global {
+    .box_login .img {
+      border-radius: 16px;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    .radio-group {
+      label {
+        width: 100%;
+        margin: 0;
+        border: 1px solid transparent;
+
+        &.ant-radio-wrapper-checked {
+          border-color: #d1132a;
+          border-radius: 16px;
+        }
+
+        span {
+          width: 100%;
+          padding: 0;
+        }
+      }
+    }
+
+    .hotline {
+      font-size: 14px;
+      line-height: 20px;
+      color: #6c6868;
+      background-color: #fff;
+
+      &::after {
+        content: '';
+        height: 1px;
+        width: calc(50% - 80px);
+        background-color: #6c6868;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+
+      &::before {
+        content: '';
+        height: 1px;
+        width: calc(50% - 80px);
+        background-color: #6c6868;
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    .ant-radio {
+      display: none;
+    }
+  }
+}
