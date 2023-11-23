@@ -68,6 +68,7 @@ const useCart = () => {
   }, [currentPage, isRefresh, searchParams]);
 
   const handleFilterCart = (values: any) => {
+    console.log('values', values);
     setSearchParams({
       ...searchParams,
       ...values,

@@ -8,6 +8,7 @@ import ImportInventoryModal from 'components/organism/CartManagement/ImportInven
 import InventoryTableFilter from 'components/organism/CartManagement/InventoryTableFilter';
 import AppButton from 'components/atoms/AppButton';
 import {AppTableContainer} from '@crema';
+import IntlMessages from '@crema/utility/IntlMessages';
 
 const InventoryTable = () => {
   const {messages} = useIntl();
@@ -43,7 +44,8 @@ const InventoryTable = () => {
   return (
     <div>
       <AppTypo variant='p-xl-semi'>
-        {messages['common.inventoryTable'] as string}
+        <IntlMessages id='common.inventoryTable' />
+        {/* {messages['common.inventoryTable'] as string} */}
       </AppTypo>
       <AppModal
         openModal={isOpen}

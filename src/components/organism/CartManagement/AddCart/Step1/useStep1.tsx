@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {FormInstance} from 'antd';
 import {onGetInvestor} from 'redux/actions/categories';
-import {checkValidateForm} from 'utils/formHelper';
+import {checkValidateForm} from 'utils/FormHelper';
 import {loadState} from 'utils/LocalStore';
 import {useSelector} from 'react-redux';
 

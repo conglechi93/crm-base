@@ -72,8 +72,8 @@ const AppHeader = () => {
             />
           </IconButton>
         </Hidden>
-        <AppLogo />
-        <AppSearchBar iconPosition='right' placeholder='Search…' />
+        {/* <AppLogo /> */}
+        {/* <AppSearchBar iconPosition='right' placeholder='Search…' /> */}
         <Box
           sx={{
             flexGrow: 1,
@@ -81,7 +81,7 @@ const AppHeader = () => {
         />
         <AppLngSwitcher iconOnly={true} tooltipPosition='bottom' />
 
-        <Box sx={{ml: 4}}>
+        {/* <Box sx={{ml: 4}}>
           <Hidden smDown>
             <Box
               sx={{
@@ -167,7 +167,7 @@ const AppHeader = () => {
             </MenuItem>
             <MenuItem>Setting</MenuItem>
           </Menu>
-        </Box>
+        </Box> */}
       </Toolbar>
     </AppBar>
   );
