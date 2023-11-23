@@ -5,6 +5,7 @@
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@aws-amplify/auth": "^4.3.10",
+    "@babel/eslint-parser": "^7.23.3",
     "@babel/runtime": "^7.15.4",
     "@brainhubeu/react-carousel": "^2.0.4",
     "@date-io/date-fns": "^2.11.0",

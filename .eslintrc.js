@@ -29,4 +29,9 @@ module.exports = {
       version: 'detect',
     },
   },
+  parser: '@babel/eslint-parser',
+  extends: 'next/core-web-vitals',
+  rules: {
+    'react/no-unescaped-entities': [],
+  },
 };
