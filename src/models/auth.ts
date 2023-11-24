@@ -1,14 +1,14 @@
 export interface LoginPayload {
-  username: string
-  password: number
+  username: string;
+  password: number;
 }
 
 export interface TokenPayload {
-  accessToken: string
-  refreshToken: string
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface CodeChallengePayload {
-  authCode: string | string[] | null
-  codeVerifier: string | string[] | null
+  authCode: string | string[] | null;
+  codeVerifier: string | string[] | null;
 }
