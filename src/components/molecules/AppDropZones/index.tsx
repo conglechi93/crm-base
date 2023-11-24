@@ -81,7 +81,7 @@ const AppDropZones = (props: AppDropZonesProps) => {
         )}
       </Upload>
       {required && fileList.length < minLength && (
-        <a>{`Bạn cần tải lên ít nhất ${minLength} ảnh`}</a>
+        <p>{`Bạn cần tải lên ít nhất ${minLength} ảnh`}</p>
       )}
     </div>
   );
