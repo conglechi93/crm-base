@@ -10,7 +10,7 @@ import {
   onDeleteProperty,
   onGetPropertyList,
   onUpdateProperty,
-} from 'redux/actions/property';
+} from 'redux/actions/Property';
 import AddForm from 'components/organism/ConfigurationManagement/AddPropertyForm';
 import {AiOutlineMore} from 'react-icons/ai';
 
@@ -76,7 +76,7 @@ const useProperty = () => {
 
   const submitModal = async () => {
     if (submitType === 'delete') {
-      const res = await dispatch(onDeleteProperty(currentRecord?.id));
+      const res: any = await dispatch(onDeleteProperty(currentRecord?.id));
       if (res) {
         setIsRefresh(!isRefresh);
         setIsOpen(false);
@@ -84,14 +84,16 @@ const useProperty = () => {
       return;
     }
     if (submitType === 'add') {
-      const res = await dispatch(onCreateProperty({...submitData, shopId: 1}));
+      const res: any = await dispatch(
+        onCreateProperty({...submitData, shopId: 1}),
+      );
       if (res) {
         setIsRefresh(!isRefresh);
         setIsOpen(false);
       }
     }
     if (submitType === 'edit') {
-      const res = await dispatch(
+      const res: any = await dispatch(
         onUpdateProperty({
           ...submitData,
           shopId: 1,

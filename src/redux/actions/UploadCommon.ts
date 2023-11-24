@@ -1,5 +1,5 @@
 import {API_ENDPOINTS} from 'services/apiUrl';
-import axiosService from 'services/axiosServices';
+import API from 'api/Request';
 
 export const onUploadFile = async (file: any, type: string) => {
   try {
@@ -11,9 +11,9 @@ export const onUploadFile = async (file: any, type: string) => {
     };
     fmData.append('upload', file);
     fmData.append('type', type);
-    const res = await axiosService.post(
-      fmData,
+    const res = await API.post(
       API_ENDPOINTS.common.upload_file,
+      fmData,
       config,
     );
     return res?.data;
@@ -28,7 +28,9 @@ export const onRemoveFile = async (id: string) => {
     const reqParams = {
       id: id,
     };
-    await axiosService.delete(reqParams, API_ENDPOINTS.common.delete_file);
+    await API.delete(API_ENDPOINTS.common.delete_file, {
+      params: reqParams,
+    });
     return true;
   } catch (error) {
     console.log('error', error);

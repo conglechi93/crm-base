@@ -1,7 +1,6 @@
 import {API_ENDPOINTS} from 'services/apiUrl';
-import axiosService from 'services/axiosServices';
-import {OPEN_TOAST} from 'types';
 import API from 'api/Request';
+import {OPEN_TOAST} from 'types';
 
 export const onGetCartList = async (payload?: any) => {
   try {
@@ -39,10 +38,11 @@ export const onGetInventoryTableList = async (payload?: any) => {
 
 export const onGetInventoryTableById = async (id?: string) => {
   try {
-    const res = await axiosService.getById(
-      '/' + id,
-      API_ENDPOINTS.cart_management.inventory_table,
-    );
+    const res = await API.get(API_ENDPOINTS.cart_management.inventory_table, {
+      params: {
+        id: id,
+      },
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -63,10 +63,7 @@ export const onCreateInventoryTable = (payload?: any) => {
             }
           : null,
       };
-      await axiosService.post(
-        reqParams,
-        API_ENDPOINTS.cart_management.inventory_table,
-      );
+      await API.post(API_ENDPOINTS.cart_management.inventory_table, reqParams);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -101,10 +98,7 @@ export const onUpdateInventoryTable = (payload?: any) => {
             }
           : null,
       };
-      await axiosService.update(
-        reqParams,
-        API_ENDPOINTS.cart_management.inventory_table,
-      );
+      await API.patch(API_ENDPOINTS.cart_management.inventory_table, reqParams);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -127,10 +121,11 @@ export const onUpdateInventoryTable = (payload?: any) => {
 
 export const onGetCartById = async (cardId: string) => {
   try {
-    const res = await axiosService.getById(
-      cardId,
-      API_ENDPOINTS.cart_management.cart,
-    );
+    const res = await API.get(API_ENDPOINTS.cart_management.cart, {
+      params: {
+        id: cardId,
+      },
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -145,31 +140,8 @@ export const onAddNewCart = (payload?: any) => {
         shopId: payload.shopId || '1',
         cartName: payload.cartName || '',
         description: payload.description || '',
-        // cartName: payload.cartName || '',
-        // scale: payload.scale || '',
-        // acreage: payload.acreage || '',
-        // lowestPrice: payload.lowestPrice || '',
-        // highestPrice: payload.highestPrice || '',
-        // street: payload.street || '',
-        // description: payload.description || '',
-        // images: payload.images || [],
-        // investor: {
-        //   code: payload?.investor?.value ? payload?.investor?.value : '',
-        // },
-        // legalDoc: {
-        //   code: payload?.legalDoc?.value ? payload?.legalDoc?.value : '',
-        // },
-        // city: {
-        //   code: payload?.province?.value ? payload?.province?.value : '',
-        // },
-        // district: {
-        //   code: payload?.district?.value ? payload?.district?.value : '',
-        // },
-        // ward: {
-        //   code: payload?.ward?.value ? payload?.ward?.value : '',
-        // },
       };
-      await axiosService.post(reqParams, API_ENDPOINTS.cart_management.addCart);
+      await API.post(API_ENDPOINTS.cart_management.addCart, reqParams);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -199,10 +171,7 @@ export const onEditCart = (payload?: any) => {
         cartName: payload.cartName || '',
         description: payload.description || '',
       };
-      await axiosService.update(
-        reqParams,
-        API_ENDPOINTS.cart_management.addCart,
-      );
+      await API.patch(API_ENDPOINTS.cart_management.addCart, reqParams);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -229,10 +198,9 @@ export const onDeleteCart = (cartId?: string) => {
       const reqParams = {
         id: cartId,
       };
-      await axiosService.delete(
-        reqParams,
-        API_ENDPOINTS.cart_management.deleteCart,
-      );
+      await API.delete(API_ENDPOINTS.cart_management.deleteCart, {
+        params: reqParams,
+      });
       const toastProps = {
         type: 'success',
         message: 'Xóa giỏ hàng thành công',
@@ -253,8 +221,7 @@ export const onDeleteCart = (cartId?: string) => {
 
 export const onGetInventoryInitCreate = async (inventoryTableId: string) => {
   try {
-    const res = await axiosService.getAll(
-      {},
+    const res = await API.get(
       API_ENDPOINTS.inventory.get_inventory_init_create.replace(
         '{inventoryTableId}',
         inventoryTableId,
@@ -273,10 +240,9 @@ export const onDeleteInventoryTable = (id: string) => {
       id: id,
     };
     try {
-      await axiosService.delete(
-        reqParams,
-        API_ENDPOINTS.cart_management.delete_inventory_table,
-      );
+      await API.delete(API_ENDPOINTS.cart_management.delete_inventory_table, {
+        params: reqParams,
+      });
       const toastProps = {
         type: 'success',
         message: 'Thông báo',

@@ -9,7 +9,6 @@ import React, {
 import Auth from '@aws-amplify/auth';
 import {useDispatch} from 'react-redux';
 import {awsConfig} from './aws-exports';
-import {SHOW_MESSAGE} from '../../../../shared/constants/ActionTypes';
 import {AuthUser} from '../../../../types/models/AuthUser';
 import {
   fetchError,
@@ -89,7 +88,7 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({children}) => {
           isLoading: false,
         }),
       )
-      .catch(() =>
+      .catch((e) =>
         setAwsCognitoData({
           user: undefined,
           isAuthenticated: false,
@@ -109,13 +108,13 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({children}) => {
         isLoading: false,
         isAuthenticated: true,
       });
-    } catch ({message}) {
+    } catch (e) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
   const signUpCognitoUser = async ({email, password, name}: SignUpProps) => {
@@ -136,13 +135,13 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({children}) => {
           'A code has been sent to your registered email address, Enter the code to complete the signup process!',
         ),
       );
-    } catch ({message}) {
+    } catch (e) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
   const confirmCognitoUserSignup = async (username: string, code: string) => {
@@ -152,18 +151,13 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({children}) => {
         forceAliasCreation: false,
       });
       router.replace('/signin');
-      dispatch({
-        type: SHOW_MESSAGE,
-        payload:
-          'Congratulations, Signup process is complete, You can now Sign in by entering correct credentials!',
-      });
-    } catch ({message}) {
+    } catch (e) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
   const forgotPassword = async (username: string, code: string) => {
@@ -173,18 +167,13 @@ const AwsAuthProvider: React.FC<AwsAuthProviderProps> = ({children}) => {
         forceAliasCreation: false,
       });
       router.replace('/signin');
-      dispatch({
-        type: SHOW_MESSAGE,
-        payload:
-          'Congratulations, Signup process is complete, You can now Sign in by entering correct credentials!',
-      });
-    } catch ({message}) {
+    } catch (e) {
       setAwsCognitoData({
         user: null,
         isLoading: false,
         isAuthenticated: false,
       });
-      dispatch(fetchError(message as string));
+      // dispatch(fetchError(message as string));
     }
   };
 

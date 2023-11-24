@@ -5,7 +5,7 @@ import {Form} from 'antd';
 import {AddFormType} from './interface';
 import {onGetCartFormList} from 'redux/actions/ConfigManagement';
 import {onGetCartList} from 'redux/actions/CartManagement';
-import {onGetEstateTypes} from 'redux/actions/categories';
+import {onGetEstateTypes} from 'redux/actions/Categories';
 import {onGetInventoryByTableId} from 'redux/actions/Inventory';
 
 const useViewInventoryTable = (props: AddFormType) => {

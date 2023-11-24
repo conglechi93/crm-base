@@ -1,16 +1,15 @@
 import {API_ENDPOINTS} from 'services/apiUrl';
-import axiosService from 'services/axiosServices';
 import {OPEN_TOAST} from 'types';
+import API from 'api/Request';
 
 export const onGetCartFormList = async (payload?: any) => {
   try {
     const reqParams = {
       ...payload,
     };
-    const res = await axiosService.getAll(
-      reqParams,
-      API_ENDPOINTS.configuration_management.cart,
-    );
+    const res = await API.get(API_ENDPOINTS.configuration_management.cart, {
+      params: reqParams,
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -18,12 +17,13 @@ export const onGetCartFormList = async (payload?: any) => {
   }
 };
 
-export const onGetCartFormById = async (payload: string) => {
+export const onGetCartFormById = async (id: string) => {
   try {
-    const res = await axiosService.getById(
-      payload,
-      API_ENDPOINTS.configuration_management.cart,
-    );
+    const res = await API.get(API_ENDPOINTS.configuration_management.cart, {
+      params: {
+        id: id,
+      },
+    });
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);
@@ -34,13 +34,7 @@ export const onGetCartFormById = async (payload: string) => {
 export const onCreateCartForm = (payload?: any) => {
   return async (dispatch: any) => {
     try {
-      const reqParams = {
-        ...payload,
-      };
-      await axiosService.post(
-        reqParams,
-        API_ENDPOINTS.configuration_management.cart,
-      );
+      await API.post(API_ENDPOINTS.configuration_management.cart, payload);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -67,10 +61,7 @@ export const onUpdateCartForm = (payload?: any) => {
       const reqParams = {
         ...payload,
       };
-      await axiosService.update(
-        reqParams,
-        API_ENDPOINTS.configuration_management.cart,
-      );
+      await API.patch(API_ENDPOINTS.configuration_management.cart, reqParams);
       const toastProps = {
         type: 'error',
         message: 'Thông báo',
@@ -97,10 +88,7 @@ export const onDeleteCartForm = (id?: any) => {
       const reqParams = {
         id: id,
       };
-      const res = await axiosService.delete(
-        reqParams,
-        API_ENDPOINTS.configuration_management.cart,
-      );
+      const res = await API.delete(API_ENDPOINTS.configuration_management.cart);
       const toastProps = {
         type: 'success',
         message: 'Thông báo',
@@ -126,9 +114,9 @@ export const onExportCartForm = async (id: string) => {
     const reqParams = {
       id: id,
     };
-    const res = await axiosService.post(
-      reqParams,
+    const res = await API.post(
       API_ENDPOINTS.configuration_management.cart_form_export,
+      reqParams,
       {
         responseType: 'blob',
       },
@@ -142,10 +130,7 @@ export const onExportCartForm = async (id: string) => {
 
 export const onCategoryData = async () => {
   try {
-    const res = await axiosService.getAll(
-      {},
-      API_ENDPOINTS.configuration_management.category,
-    );
+    const res = await API.get(API_ENDPOINTS.configuration_management.category);
     return res?.data?.data;
   } catch (error) {
     console.log('error', error);

@@ -7,8 +7,13 @@ import AddCartModal from 'components/organism/CartManagement/AddCartModal';
 import AppModal from 'components/molecules/AppModal';
 import AddInventoryModal from 'components/organism/CartManagement/AddInventoryModal';
 import {AppTableContainer} from '@crema';
+import {useRouter} from 'next/router';
 
 const Cart = () => {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <></>;
+  }
   const {
     form,
     isLoading,
@@ -38,6 +43,7 @@ const Cart = () => {
     setInventoryModalStep,
     inventoryModalInfo,
   } = useCart();
+
   return (
     <div>
       <AddCartModal

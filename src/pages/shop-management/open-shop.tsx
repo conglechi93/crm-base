@@ -4,5 +4,8 @@ import asyncComponent from '../../@crema/utility/asyncComponent';
 
 const OpenShop = asyncComponent(
   () => import('../../modules/shopManagement/OpenShop'),
+  {
+    ssr: false,
+  },
 );
 export default AppPage(() => <OpenShop />);

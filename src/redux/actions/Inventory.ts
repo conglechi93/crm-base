@@ -1,6 +1,6 @@
 import {API_ENDPOINTS} from 'services/apiUrl';
-import axiosService from 'services/axiosServices';
 import {OPEN_TOAST} from 'types';
+import API from 'api/Request';
 
 export const onGetInventoryByTableId = async (id: string, payload?: any) => {
   try {
@@ -9,12 +9,14 @@ export const onGetInventoryByTableId = async (id: string, payload?: any) => {
       pageSize: payload.pageSize,
       search: payload.search,
     };
-    const res = await axiosService.getAll(
-      reqParams,
+    const res = await API.get(
       API_ENDPOINTS.inventory.get_inventories_by_table_id.replace(
         '{tableId}',
         id,
       ),
+      {
+        params: reqParams,
+      },
     );
     return res?.data?.data;
   } catch (error) {
@@ -29,10 +31,7 @@ export const onDeleteInventory = (id: string) => {
       const reqParams = {
         id: id,
       };
-      await axiosService.delete(
-        reqParams,
-        API_ENDPOINTS.inventory.delete_inventory,
-      );
+      await API.delete(API_ENDPOINTS.inventory.delete_inventory);
       const toastProps = {
         type: 'success',
         message: 'Xóa mặt hàng thành công!',
@@ -61,9 +60,9 @@ export const onImportExcelForm = (file: any) => {
       },
     };
     try {
-      const res = await axiosService.post(
-        formData,
+      const res = await API.post(
         API_ENDPOINTS.inventory.import_excel_form,
+        formData,
         config,
       );
       return res?.data?.data;
@@ -76,7 +75,7 @@ export const onImportExcelForm = (file: any) => {
 
 export const onGetExcelRecordsByKey = (payload: any) => {
   return async (dispatch: any) => {
-    const param = {
+    const reqParams = {
       id: payload.formId,
       page: payload.page,
       pageSize: payload.pageSize,
@@ -84,9 +83,11 @@ export const onGetExcelRecordsByKey = (payload: any) => {
       type: payload.type,
     };
     try {
-      const res = await axiosService.getAll(
-        param,
+      const res = await API.get(
         API_ENDPOINTS.inventory.get_excel_records_by_key,
+        {
+          params: reqParams,
+        },
       );
       return res?.data?.data;
     } catch (error) {
@@ -99,10 +100,11 @@ export const onGetExcelRecordsByKey = (payload: any) => {
 export const onGetInventoryDetailById = (inventoryId: string) => {
   return async (dispatch: any) => {
     try {
-      const res = await axiosService.getById(
-        inventoryId,
-        API_ENDPOINTS.inventory.get_inventory_detail,
-      );
+      const res = await API.get(API_ENDPOINTS.inventory.get_inventory_detail, {
+        params: {
+          id: inventoryId,
+        },
+      });
       return res?.data?.data;
     } catch (error) {
       console.log('error', error);

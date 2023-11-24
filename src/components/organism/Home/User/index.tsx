@@ -2,7 +2,7 @@ import {Col, Radio, Row} from 'antd';
 import AppButton from 'components/atoms/AppButton';
 import AppTypo from 'components/atoms/AppTypo';
 import React from 'react';
-import imgLogin from 'assets/image/img-login.jpg';
+// import imgLogin from 'assets/image/img-login.jpg';
 import AppCard from 'components/molecules/AppCard';
 import {RadioChangeEvent} from 'antd/lib';
 import {useRouter} from 'next/router';
@@ -27,13 +27,13 @@ const HomeUsers = () => {
           >
             <AppCard
               title={'Đăng nhập dưới tên Phạm Chương'}
-              imageUrl={imgLogin.src}
+              // imageUrl={imgLogin.src}
             />
           </Radio>
           <Radio value={2}>
             <AppCard
               title={'Đăng nhập dưới tên Công ty TNHH Rồng Xanh Đất Phương Nam'}
-              imageUrl={imgLogin.src}
+              // imageUrl={imgLogin.src}
             />
           </Radio>
         </Radio.Group>
