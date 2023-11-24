@@ -3,13 +3,13 @@ import thunkMiddleware from 'redux-thunk';
 import reducers from '../reducers';
 import {useMemo} from 'react';
 
-import {persistStore, persistReducer} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import {persistReducer} from 'redux-persist';
 import {configureStore} from '@reduxjs/toolkit';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: AsyncStorage,
 };
 
 const rootReducer = combineReducers({
