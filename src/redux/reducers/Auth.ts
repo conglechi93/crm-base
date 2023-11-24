@@ -33,6 +33,7 @@ const initialState: InitialStateType = {
 const authReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_TOKEN_SUCCESS: {
+      console.log('SET_TOKEN_SUCCESS', action.payload);
       return {
         ...state,
         accessToken: action.payload?.accessToken,

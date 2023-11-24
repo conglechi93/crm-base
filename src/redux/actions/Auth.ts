@@ -80,6 +80,8 @@ export const onSetAccessToken = (
       const res = await API.post(API_ENDPOINTS.auth.code_challenge, reqParams);
       const accessToken: string | null = res?.data?.data?.accessToken;
       const refreshToken: string | null = res?.data?.data?.refreshToken;
+      console.log('accessToken', accessToken);
+      console.log('refreshToken', refreshToken);
       dispatch({
         type: SET_TOKEN_SUCCESS,
         payload: {
