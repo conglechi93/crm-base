@@ -16,7 +16,7 @@ export const SSOListenerProvider = (prop: SSOListenerProps) => {
   const dispatch = useAppDispatch();
   const {accessToken} = useAppSelector((state) => state.auth);
   const [searchParams, setSearchParams] = useSearchParams('');
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const removeQueryParams = (paramName: string) => {
     const param = searchParams.get(paramName);
@@ -31,12 +31,10 @@ export const SSOListenerProvider = (prop: SSOListenerProps) => {
   ) => {
     await dispatch(onSetAccessToken(codeChallengePayload));
     await removeQueryParams('authCode');
-    setIsLoading(false);
+    // setIsLoading(false);
   };
 
   useEffect(() => {
-    const REACT_APP_SSO_SERVER_URL = process.env.REACT_APP_SSO_SERVER_URL;
-    console.log('REACT_APP_SSO_SERVER_URL', REACT_APP_SSO_SERVER_URL);
     const authCode = searchParams.get('authCode');
     if (authCode && !accessToken) {
       const codeVerifier = localStorage.getItem('codeVerifier');

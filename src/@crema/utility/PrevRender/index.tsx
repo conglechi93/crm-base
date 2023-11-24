@@ -1,5 +1,6 @@
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
+import {onGetUserInfo} from 'redux/actions/Auth';
 import {useAppDispatch, useAppSelector} from 'redux/hook';
 import {initialUrl} from 'shared/constants/AppConst';
 
@@ -11,7 +12,7 @@ export const PrevRender = (prop: PrevRenderProps) => {
   const [currentUrl, setCurrentUrl] = useState<any>(null);
   const {children} = prop;
   const dispatch = useAppDispatch();
-  // const {accessToken} = useAppSelector((state) => state.auth);
+  const {accessToken, isAuthenticated} = useAppSelector((state) => state.auth);
   const {shopInfo} = useAppSelector((state) => state.shop);
 
   useEffect(() => {
@@ -28,5 +29,13 @@ export const PrevRender = (prop: PrevRenderProps) => {
       }
     }
   }, [shopInfo]);
+  useEffect(() => {
+    if (isAuthenticated) {
+      const fetchUserInfo = async () => {
+        dispatch(await onGetUserInfo());
+      };
+      fetchUserInfo();
+    }
+  }, [isAuthenticated]);
   return <>{children}</>;
 };

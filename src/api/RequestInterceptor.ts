@@ -50,11 +50,10 @@ const useRequestInterceptor = () => {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     const apiRequestInterceptor = (config: AxiosRequestConfig) => {
-      // const {accessToken} = store.getState().auth;
-      // if (accessToken) {
-      //   config.headers['Authorization'] = `Bearer ${accessToken}`;
-      // }
-      const accessToken = 'eyJhbGciOiJIUzUxMiJ9.eyJhcHAiOiIzdG9FRkRBaEs2IiwiYyI6MCwidHlwIjoiQmVhcmVyIiwiXyt2Ijp7Im9iamVjdElkIjoiRllwTUo3VWdaTSIsImNyZWF0ZWRBdCI6MTY3MDgzOTg5MDY4OCwidXBkYXRlZEF0IjoxNzAwNzA4NzMyMDExLCJpZCI6IjFmM2ZhZDY0LTczYmQtNDdiYS04MDliLThlZmFiMzg2YWY5YyIsInVzZXJuYW1lIjoiKzg0Mzk2MzkzNDgzIiwiZW1haWwiOm51bGwsInNlc3Npb25Ub2tlbiI6InI6XzMzOGU3MmY0ZDMzYjQ1OWFiM2U4N2NmZDkxYzNmOTlmIiwicmVmcmVzaFRva2VuIjoiZXlKaGJHY2lPaUpJVXpVeE1pSjkuZXlKaGNIQWlPaUl6ZEc5RlJrUkJhRXMySWl3aWRIbHdJam9pVW1WbWNtVnphQ0lzSW5OMVlpSTZJbUpTVW5sdFpETkJXWGdpTENKaGRXUWlPaUkyTURCalpUVmhNbVprWkRRME9XSTRZVGt5T1dOaU1qWmhNakV3TXpKa1pDSXNJbWxoZENJNk1UY3dNRGd3TWpBNE9Dd2laWGh3SWpveE56QXhNRFl4TWpnNGZRLlBDaEQ1NEVjYlQ4VDVaUGdsWWdfaUI4MTZSY1gzMWtzS1VqZE5raE5WRHRHZlJWTnA3Y0lPM255dXRPVGdMQTNWUnhUNEVmV3E0Zkw5T0pTMUJWQzdRIiwib3RoZXJzIjp7InBob25lIjoiKzg0Mzk2MzkzNDgzIiwiaXNFbnRlcnByaXNlIjowLCJpc0ZpcnN0U2V0UGFzc3dvcmQiOjB9LCJyb2xlcyI6W10sInBlcm1pc3Npb25zIjpbXSwiYXBwbGljYXRpb24iOnsib2JqZWN0SWQiOiIzdG9FRkRBaEs2IiwiY3JlYXRlZEF0IjoxNjY2ODYwMTM1MTU2LCJ1cGRhdGVkQXQiOjE2ODk1NzYyODQwOTQsIm5hbWUiOiJWQVJTIE5FV1MiLCJjb2RlIjoiVkFSU19ORVdTIiwiY2xpZW50cyI6bnVsbCwic3RhdHVzIjoxfSwicmVnaXN0ZXJEYXRlIjpudWxsfSwic3ViIjoiRllwTUo3VWdaTSIsImF1ZCI6IjYwMGNlNWEyZmRkNDQ5YjhhOTI5Y2IyNmEyMTAzMmRkIiwiaWF0IjoxNzAwODAyMDg4LCJleHAiOjE3MDA4ODg0ODh9.kKn2YDhao_F-ZRehkXiex311LLoFtCAu5zFNyXaZ0X87mFAAOGcbcB77NXDnP6fVgsFVkpozIPbxZhorbdd1tQ'
+      const {accessToken} = store.getState().auth;
+      if (accessToken) {
+        config.headers['Authorization'] = `Bearer ${accessToken}`;
+      }
       config.headers['Authorization'] = `Bearer ${accessToken}`;
       config.cancelToken = AxiosRequestCancleToken.getToken();
       AxiosRequestCancleToken.setIndex();
