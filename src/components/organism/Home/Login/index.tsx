@@ -7,6 +7,7 @@ import imgLogin from 'assets/image/img-login.jpg';
 import styles from '../style.module.scss';
 
 const HomeLogin = () => {
+  const handleLogin = async () => {};
   return (
     <div className={styles.box_login}>
       <Row gutter={[0, 24]}>
@@ -17,10 +18,14 @@ const HomeLogin = () => {
           <Image src={imgLogin} alt='Đăng nhập' className='img' />
         </Col>
         <Col xs={{span: 24}}>
-          <AppButton type='primary'>Đăng nhập qua VARs ID</AppButton>
+          <AppButton type='primary' onClick={handleLogin}>
+            Đăng nhập qua VARs ID
+          </AppButton>
         </Col>
         <Col xs={{span: 24}}>
-          <span className='hotline'>Hotline: 1900 3427</span>
+          <a href='tel:1900 3427' className='hotline'>
+            Hotline: 1900 3427
+          </a>
         </Col>
       </Row>
     </div>

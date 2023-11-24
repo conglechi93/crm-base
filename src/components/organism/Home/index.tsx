@@ -3,11 +3,11 @@ import HomeLogin from './Login';
 import HomeUsers from './User';
 import styles from './style.module.scss';
 import {onGetListProfile} from 'redux/actions/Auth';
-import {useAppDispatch} from 'redux/hook';
+import {useAppDispatch, useAppSelector} from 'redux/hook';
 
 const HomeComponent = () => {
   const dispatch = useAppDispatch();
-  const [isLoged, setIsLoged] = useState(true);
+  const {isAuthenticated} = useAppSelector((state) => state.auth);
   const [dataUser, setDataUser] = useState<any>(null);
 
   const fetchAPI = async () => {
@@ -20,7 +20,7 @@ const HomeComponent = () => {
 
   return (
     <div className={styles.box_card}>
-      {isLoged ? <HomeLogin /> : <HomeUsers dataUser={dataUser} />}
+      {!isAuthenticated ? <HomeLogin /> : <HomeUsers dataUser={dataUser} />}
     </div>
   );
 };

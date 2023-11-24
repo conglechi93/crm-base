@@ -61,7 +61,9 @@ const HomeUsers = (props: PropsTypes) => {
         </AppButton>
       </Col>
       <Col xs={{span: 24}}>
-        <span className='hotline'>Hotline: 1900 3427</span>
+        <a href='tel:1900 3427' className='hotline'>
+          Hotline: 1900 3427
+        </a>
       </Col>
     </Row>
   );
