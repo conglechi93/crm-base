@@ -48,7 +48,7 @@ const HorizontalItem: React.FC<HorizontalItemProps> = (props) => {
 
   const router = useRouter();
   return (
-    <Link href={item.url!} as={item.as}>
+    <Link href={item.url!} as={item.as} legacyBehavior>
       <ListItem
         className={clsx('navItemSubmenu', dense && 'dense', {
           active: item.url === router.pathname,

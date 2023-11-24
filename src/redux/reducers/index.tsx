@@ -3,6 +3,7 @@ import Common from './Common';
 import appReducer from './App';
 import Auth from './Auth';
 import Category from './Categories';
+import ShopInfo from './Shop';
 import storage from 'redux-persist/lib/storage';
 import {persistReducer} from 'redux-persist';
 
@@ -25,6 +26,7 @@ const reducers = {
   settings: Settings,
   common: Common,
   app: appReducer,
+  shop: ShopInfo,
   category: persistReducer(categoriesPersistConfig, Category),
 };
 

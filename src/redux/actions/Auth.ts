@@ -6,6 +6,7 @@ import {
   LOGIN,
   LOGIN_FAILED,
   LOGIN_SUCCESS,
+  CLEAN_STATE,
   OPEN_TOAST,
   SET_TOKEN_FAILED,
   SET_TOKEN_SUCCESS,
@@ -37,6 +38,25 @@ export const onLogin = (loginPayload: LoginPayload) => {
         type: LOGIN_FAILED,
       });
       console.log('error', error);
+    }
+  };
+};
+export const onLogout = (accessToken: any) => {
+  return async (dispatch: any) => {
+    try {
+      const reqParams = {
+        sessionToken: accessToken,
+      };
+      const res = await API.post(API_ENDPOINTS.auth.logout, reqParams);
+      if (res) {
+        dispatch({
+          type: CLEAN_STATE,
+        });
+      }
+      return true;
+    } catch (error) {
+      console.log('error', error);
+      return false
     }
   };
 };
@@ -80,6 +100,8 @@ export const onSetAccessToken = (
       const res = await API.post(API_ENDPOINTS.auth.code_challenge, reqParams);
       const accessToken: string | null = res?.data?.data?.accessToken;
       const refreshToken: string | null = res?.data?.data?.refreshToken;
+      console.log('accessToken', accessToken);
+      console.log('refreshToken', refreshToken);
       dispatch({
         type: SET_TOKEN_SUCCESS,
         payload: {

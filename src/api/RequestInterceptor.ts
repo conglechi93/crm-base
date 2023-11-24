@@ -54,6 +54,7 @@ const useRequestInterceptor = () => {
       if (accessToken) {
         config.headers['Authorization'] = `Bearer ${accessToken}`;
       }
+      config.headers['Authorization'] = `Bearer ${accessToken}`;
       config.cancelToken = AxiosRequestCancleToken.getToken();
       AxiosRequestCancleToken.setIndex();
       return config;
