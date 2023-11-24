@@ -5,8 +5,8 @@ import type {TransferDirection} from 'antd/es/transfer';
 
 import {RecordType, TransferProps} from './interface';
 
-import AddIcon from '@/assets/icons/add.svg';
-import RemoveIcon from '@/assets/icons/remove.svg';
+import AddIcon from '../../../assets/icon/add.svg';
+import RemoveIcon from '../../../assets/icon/remove.svg';
 
 import styles from './style.module.scss';
 

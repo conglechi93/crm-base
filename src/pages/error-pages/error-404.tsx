@@ -4,5 +4,8 @@ import asyncComponent from '../../@crema/utility/asyncComponent';
 
 const Error404 = asyncComponent(
   () => import('../../modules/errorPages/Error404'),
+  {
+    ssr: false,
+  },
 );
 export default AppPage(() => <Error404 />);

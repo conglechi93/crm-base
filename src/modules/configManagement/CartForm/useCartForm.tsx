@@ -16,7 +16,7 @@ import AddFormCartForm from 'components/organism/ConfigurationManagement/AddForm
 import AppTransfer from 'components/molecules/AppTransfer';
 import {AppTableContainer} from '@crema';
 import AppTag from 'components/atoms/AppTag';
-import TempIcon from '@/assets/icons/action/dot-hoz.svg';
+import TempIcon from '../../../assets/icon/action/dot-hoz.svg';
 
 const useCart = () => {
   const pageSize = 10;

@@ -1,9 +1,14 @@
-import dynamic from 'next/dynamic';
+import dynamic, {DynamicOptions, Loader} from 'next/dynamic';
 import React from 'react';
 import {AppLoader} from '../index';
 
-export default function asyncComponent(importComponent) {
+const AppAsyncComponent = (
+  importComponent: DynamicOptions | Loader,
+  other?: DynamicOptions,
+) => {
   return dynamic(importComponent, {
     loading: () => <AppLoader />,
+    ...other,
   });
-}
+};
+export default AppAsyncComponent;

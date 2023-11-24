@@ -84,7 +84,6 @@ const useCart = () => {
         setIsRefresh(!isRefresh);
       },
     };
-    console.log('info', info);
     const data = {
       shopId: 1,
     };
