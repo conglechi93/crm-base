@@ -18,6 +18,7 @@ import '../styles/all.scss';
 import {BrowserRouter} from 'react-router-dom';
 import {SSOListenerProvider} from '@crema/utility/SSOListenerProvider';
 import {PersistGate} from 'redux-persist/integration/react';
+import {PrevRender} from '@crema/utility/PrevRender';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -53,8 +54,10 @@ export default function MyApp(props: MyAppProps) {
                     <AppStyleProvider>
                       <AppLocaleProvider>
                         <RequestInterceptor>
-                          <CssBaseline />
-                          <Component {...pageProps} />
+                          <PrevRender>
+                            <CssBaseline />
+                            <Component {...pageProps} />
+                          </PrevRender>
                         </RequestInterceptor>
                       </AppLocaleProvider>
                     </AppStyleProvider>

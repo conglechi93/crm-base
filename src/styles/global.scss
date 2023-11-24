@@ -23,20 +23,69 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: contain;
+  position: relative;
+
+  &::before {
+    content: url('../assets/image/left.png');
+    position: absolute;
+    left: 2rem;
+    top: 10rem;
+    animation: moveAnimation 6s infinite alternate;
+    z-index: -1;
+  }
+
+  &::after {
+    content: url('../assets/image/right.png');
+    position: absolute;
+    right: 2rem;
+    top: 20rem;
+    animation: moveAnimation 6s infinite alternate;
+    z-index: -1;
+  }
+
+  @keyframes moveAnimation {
+    0% {
+      transform: translate(10px, 20px);
+    }
+
+    100% {
+      transform: translate(0px, -15px)
+    }
+  }
 
   .logo {
     position: fixed;
     top: 24px;
-    left: 24px;
-    right: 24px;
+    left: 80px;
+    right: 80px;
 
     @media (max-width: 767px) {
       text-align: center;
     }
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+  background-size: 400% 100%;
+  animation-name: skeletonloading;
+  animation-duration: 1.4s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes skeletonloading {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
   }
 }
 

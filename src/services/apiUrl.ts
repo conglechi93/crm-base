@@ -1,6 +1,7 @@
 export const API_ENDPOINTS = {
   auth: {
     login: '/vmanagement/auth/phone',
+    logout: '/vid/api/auth/logout',
     code_challenge: '/vid/api/auth/code/exchange',
     check_password: '/vid/api/users/me/password/checking',
   },
@@ -11,8 +12,8 @@ export const API_ENDPOINTS = {
     avatarEnterprises: '/vcms/enterprises/me/{enterpriseId}/avatar',
     list_profile: '/vcms/profiles/me',
   },
-  shop_management: {
-    shops: '/vshop/shops',
+  shops: {
+    get_shop: '/vshop/shops/me/{shopId}',
   },
   pick_lists: {
     get_pick_lists: '/vshop/configuration/pick-lists/search',
