@@ -40,6 +40,7 @@
     "moment": "^2.29.1",
     "next": "latest",
     "next-transpile-modules": "^9.0.0",
+    "pkce-challenge": "^3.0.0",
     "notistack": "^2.0.3",
     "polished": "^4.2.2",
     "prism-react-renderer": "^1.2.1",

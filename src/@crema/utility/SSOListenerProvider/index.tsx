@@ -1,21 +1,20 @@
-import {useAppDispatch, useAppSelector} from '@/store/hooks';
 import {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
-import {createChallenge} from '../../shared/ultis/CodeChallenge';
-import {onGetUserInfo, onSetAccessToken} from '@/store/actions/auth';
-import {CodeChallengePayload} from '@/models/auth';
 import {useSearchParams} from 'react-router-dom';
+import {useAppDispatch, useAppSelector} from 'redux/hook';
+import {CodeChallengePayload} from 'models/auth';
+import {onSetAccessToken} from 'redux/actions/Auth';
+import {createChallenge} from 'shared/ultis/CodeChallenge';
 
 type SSOListenerProps = {
   children: React.ReactNode;
 };
 export const SSOListenerProvider = (prop: SSOListenerProps) => {
-  console.log('SSOListener');
   const {children} = prop;
   const router = useRouter();
   const dispatch = useAppDispatch();
   const {accessToken} = useAppSelector((state) => state.auth);
-  const [searchParams, setSearchParams] = useSearchParams('');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
 
   const removeQueryParams = (paramName: string) => {
@@ -31,6 +30,7 @@ export const SSOListenerProvider = (prop: SSOListenerProps) => {
   ) => {
     await dispatch(onSetAccessToken(codeChallengePayload));
     await removeQueryParams('authCode');
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -62,7 +62,6 @@ export const SSOListenerProvider = (prop: SSOListenerProps) => {
       };
       handleRedirectToSSO();
     }
-    setIsLoading(false);
   }, [accessToken]);
   return <>{isLoading ? null : children}</>;
 };

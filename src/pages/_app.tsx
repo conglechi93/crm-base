@@ -15,6 +15,8 @@ import {RequestInterceptor} from 'api/RequestInterceptor';
 import '../@crema/services/index';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../styles/all.scss';
+import {SSOListenerProvider} from '@crema/utility/SSOListenerProvider';
+import {BrowserRouter} from 'react-router-dom';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -38,10 +40,12 @@ export default function MyApp(props: MyAppProps) {
           <AppThemeProvider>
             <AppStyleProvider>
               <AppLocaleProvider>
-                <RequestInterceptor>
-                  <CssBaseline />
-                  <Component {...pageProps} />
-                </RequestInterceptor>
+                <SSOListenerProvider>
+                  <RequestInterceptor>
+                    <CssBaseline />
+                    <Component {...pageProps} />
+                  </RequestInterceptor>
+                </SSOListenerProvider>
               </AppLocaleProvider>
             </AppStyleProvider>
           </AppThemeProvider>
