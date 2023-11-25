@@ -18,7 +18,7 @@ const InventoryTableFilter = (props: PropsTypes) => {
   const {form, onSubmitForm, cartSelectDisabled} = props;
   const {cartOptions} = useInventoryTableFilter();
   return (
-    <Row gutter={[16, 0]} align={'bottom'}>
+    <Row gutter={[16, 16]} align={'bottom'} justify={'center'}>
       <Col flex={'auto'}>
         <AppForm
           form={form}
@@ -27,7 +27,7 @@ const InventoryTableFilter = (props: PropsTypes) => {
           }}
         >
           <Row gutter={[16, 16]}>
-            <Col span={12}>
+            <Col xs={8}>
               <AppFormItem name='search' label='Tìm kiếm'>
                 <AppInput
                   type='text'
@@ -35,13 +35,18 @@ const InventoryTableFilter = (props: PropsTypes) => {
                 />
               </AppFormItem>
             </Col>
-            <Col span={12}>
-              <AppFormItem name='cartId' label='Tên giỏ hàng'>
+            <Col xs={8}>
+              <AppFormItem name='cartId' label='Dự án'>
                 <AppSelect
                   options={cartOptions}
-                  placeholder='Chọn giỏ hàng'
+                  placeholder='Chọn dự án'
                   disabled={cartSelectDisabled}
                 />
+              </AppFormItem>
+            </Col>
+            <Col xs={8}>
+              <AppFormItem name='cartId' label='Trạng thái'>
+                <AppSelect options={[]} placeholder='Chọn trạng thái' />
               </AppFormItem>
             </Col>
           </Row>

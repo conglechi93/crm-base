@@ -107,13 +107,19 @@ const useInventoryTable = () => {
       setTableData(res?.elements ?? []);
       setColumns([
         {
+          title: 'STT',
+          dataIndex: 'index',
+          key: 'index',
+          width: 50,
+        },
+        {
           title: 'Mã bảng hàng',
           width: 120,
           dataIndex: 'inventoryTableCode',
           key: '1',
         },
         {
-          title: 'Tên bảng hàng',
+          title: 'Tên',
           width: 120,
           dataIndex: 'inventoryTableName',
           key: '2',
@@ -122,19 +128,13 @@ const useInventoryTable = () => {
           },
         },
         {
-          title: 'Tên giỏ hàng',
+          title: 'Dự án',
           dataIndex: 'cartName',
           key: '3',
           width: 120,
           ellipsis: {
             showTitle: false,
           },
-        },
-        {
-          title: 'Loại bất động sản',
-          dataIndex: 'estateTypeName',
-          key: '4',
-          width: 120,
         },
         {
           title: 'Trạng thái',
@@ -157,9 +157,8 @@ const useInventoryTable = () => {
                 >
                   <Menu.Item key={1}>Xem chi tiết</Menu.Item>
                   <Menu.Item key={2}>Chỉnh sửa</Menu.Item>
-                  <Menu.Item key={3}>Thêm mới mặt hàng</Menu.Item>
-                  <Menu.Item key={4}>Import mặt hàng</Menu.Item>
-                  {/* <Menu.Item key={5}>Xem mặt hàng</Menu.Item> */}
+                  {/* <Menu.Item key={3}>Thêm mới mặt hàng</Menu.Item> */}
+                  {/* <Menu.Item key={4}>Import mặt hàng</Menu.Item> */}
                   <Menu.Item key={6} disabled={record.isHasData}>
                     Xóa
                   </Menu.Item>

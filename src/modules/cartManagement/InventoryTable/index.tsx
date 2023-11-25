@@ -45,7 +45,6 @@ const InventoryTable = () => {
     <div>
       <AppTypo variant='p-xl-semi'>
         <IntlMessages id='common.inventoryTable' />
-        {/* {messages['common.inventoryTable'] as string} */}
       </AppTypo>
       <AppModal
         openModal={isOpen}
@@ -73,7 +72,12 @@ const InventoryTable = () => {
         current={modalStep}
         setCurrent={setModalStep}
       />
-      <Row justify={'space-between'} gutter={[16, 16]} align={'bottom'}>
+      <Row
+        justify={'space-between'}
+        gutter={[16, 16]}
+        align={'bottom'}
+        className='layout_box'
+      >
         <Col flex={'auto'}>
           <InventoryTableFilter
             form={form}
@@ -91,17 +95,21 @@ const InventoryTable = () => {
           </Row>
         </Col>
       </Row>
-      <AppTableContainer
-        className=''
-        columns={columns}
-        data={tableData}
-        loading={isLoading}
-        scroll={{x: 1500}}
-        current={currentPage}
-        setCurrent={setCurrentPage}
-        total={total}
-        pageSize={pageSize}
-      />
+      <Row className='layout_box' style={{marginTop: 16}} gutter={[16, 16]}>
+        <Col xs={24}>
+          <AppTableContainer
+            className=''
+            columns={columns}
+            data={tableData}
+            loading={isLoading}
+            scroll={{x: 1500}}
+            current={currentPage}
+            setCurrent={setCurrentPage}
+            total={total}
+            pageSize={pageSize}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -11,7 +11,6 @@ const useAddForm = (props: AddFormType) => {
   const {form, type, data} = props;
   const [formOptions, setFormOptions] = useState([]);
   const [cartOptions, setCartOptions] = useState([]);
-  const [estateTypeOptions, setEstateTypeOptions] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
@@ -38,13 +37,6 @@ const useAddForm = (props: AddFormType) => {
           value: item.id,
         })) ?? [],
       );
-
-      setEstateTypeOptions(
-        res3?.map((item: any) => ({
-          label: item.name,
-          value: item.code,
-        })) ?? [],
-      );
     };
     getData();
     const getInventoryTable = async () => {
@@ -69,11 +61,9 @@ const useAddForm = (props: AddFormType) => {
   const handleFormChange = (_: any, formData: any) => {};
 
   return {
-    form,
     handleFormChange,
     formOptions,
     cartOptions,
-    estateTypeOptions,
   };
 };
 

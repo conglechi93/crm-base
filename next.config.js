@@ -16,10 +16,6 @@ module.exports = withTM({
       process.env.REACT_APP_URL_PRODUCT,
     ],
   },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-    // prependData: `@import "/src/styles/all.scss";`,
-  },
   env: {
     NX_STATE_TYPE: 'context',
     NX_FILESTACK_KEY: 'Ach6MsgoQHGK6tCaq5uJgz',

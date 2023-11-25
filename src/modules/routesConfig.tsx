@@ -25,14 +25,14 @@ const routesConfig: RouterConfigData[] = [
     messageId: 'Quản lý giỏ hàng',
     type: 'group',
     children: [
-      {
-        id: 'cart',
-        title: 'Giỏ hàng',
-        messageId: 'Giỏ hàng',
-        type: 'item',
-        icon: <BsCurrencyBitcoin />,
-        url: '/cart-management/cart',
-      },
+      // {
+      //   id: 'cart',
+      //   title: 'Giỏ hàng',
+      //   messageId: 'Giỏ hàng',
+      //   type: 'item',
+      //   icon: <BsCurrencyBitcoin />,
+      //   url: '/cart-management/cart',
+      // },
       {
         id: 'inventory-table',
         title: 'Bảng hàng',
@@ -43,37 +43,37 @@ const routesConfig: RouterConfigData[] = [
       },
     ],
   },
-  {
-    id: 'configuration-management',
-    title: 'Quản lý cấu hình',
-    messageId: 'Quản lý cấu hình',
-    type: 'group',
-    children: [
-      {
-        id: 'form-cart',
-        title: 'Biểu mẫu bảng hàng',
-        messageId: 'Biểu mẫu bảng hàng',
-        type: 'item',
-        icon: <BsCurrencyBitcoin />,
-        url: '/config-management/form-cart',
-      },
-      {
-        id: 'property',
-        title: 'Thuộc tính BĐS',
-        messageId: 'Thuộc tính BĐS',
-        type: 'item',
-        icon: <RiCustomerService2Line />,
-        url: '/config-management/property',
-      },
-      {
-        id: 'file-image',
-        title: 'Quản lý hình ảnh',
-        messageId: 'Quản lý hình ảnh',
-        type: 'item',
-        icon: <RiCustomerService2Line />,
-        url: '/config-management/file-image',
-      },
-    ],
-  },
+  // {
+  //   id: 'configuration-management',
+  //   title: 'Quản lý cấu hình',
+  //   messageId: 'Quản lý cấu hình',
+  //   type: 'group',
+  //   children: [
+  //     {
+  //       id: 'form-cart',
+  //       title: 'Biểu mẫu bảng hàng',
+  //       messageId: 'Biểu mẫu bảng hàng',
+  //       type: 'item',
+  //       icon: <BsCurrencyBitcoin />,
+  //       url: '/config-management/form-cart',
+  //     },
+  //     {
+  //       id: 'property',
+  //       title: 'Thuộc tính BĐS',
+  //       messageId: 'Thuộc tính BĐS',
+  //       type: 'item',
+  //       icon: <RiCustomerService2Line />,
+  //       url: '/config-management/property',
+  //     },
+  //     {
+  //       id: 'file-image',
+  //       title: 'Quản lý hình ảnh',
+  //       messageId: 'Quản lý hình ảnh',
+  //       type: 'item',
+  //       icon: <RiCustomerService2Line />,
+  //       url: '/config-management/file-image',
+  //     },
+  //   ],
+  // },
 ];
 export default routesConfig;
